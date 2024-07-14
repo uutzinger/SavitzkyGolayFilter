@@ -22,6 +22,8 @@
 #define DERIVATIVE 1     // 0 = Smooth, 1 = First Derivative, 2 = Second Derivative
 
 float phase = 0.0;
+float phase_inc = 0.02;
+float phase_inc_factor = 1.5;
 float twopi = 3.14159 * 2;
 
 int32_t signalValue;
@@ -33,13 +35,9 @@ SavLayFilter firstDerivative(WINDOW_SIZE, ORDER, DERIVATIVE);
 
 void setup() {
   // Start the serial communication
-  Serial.begin(192000);
-  
-  // Wait for serial port to connect
-  while (!Serial) {
-    ; // wait for serial port to connect. Needed for native USB
-  }
-
+  Serial.begin(500000);
+  delay(2000);
+  Serial.println("Starting SavGol");
   lastTime = micros();
 }
 
@@ -52,8 +50,18 @@ void loop() {
     int32_t randomValue = random(0, 500);
 
     signalValue = int32_t(sin(phase) * 1000.0 + 2000.0) + randomValue;   // creates sin wave pattern with A = 1000 and shifted up by 2000
-    phase = phase + 0.02;                                     // propaget the sine wave
-    if (phase >= twopi) phase = 0;                            // resets the phase
+    phase = phase + phase_inc;                                     // propaget the sine wave
+    if (phase >= twopi) {
+      phase = 0;                            // resets the phase
+      phase_inc = phase_inc * phase_inc_factor;
+      if (phase_inc > twopi/5) {
+        phase_inc_factor = 0.66;
+        phase_inc = twopi/5.;
+      } else if (phase_inc < 0.02) {
+        phase_inc_factor = 1.5;
+        phase_inc = 0.02;
+      }
+    }
 
     // Update the filter with the random value
     int32_t filteredValue = firstDerivative.update(signalValue);

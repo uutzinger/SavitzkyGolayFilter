@@ -107,6 +107,7 @@ int32_t SavLayFilter::update(int32_t newValue) {
     }
     return newValue;
   } else {
+    
     // Convolve
     _sum = 0;
     for (int i = 0; i < _windowSize; i++) {
@@ -118,5 +119,59 @@ int32_t SavLayFilter::update(int32_t newValue) {
     _sum /= _norm;
 
     return _sum;
+  }
+}
+
+float SavLayFilter::update(float newValue) {
+  // Circular buffer logic
+  _buffer_float[_head] = newValue;
+  _head = (_head + 1) % _bufferSize;
+
+  if (!_isBufferFull) {
+    // Return new value until buffer is full
+    if (_head == 0) {
+      _isBufferFull = true;
+    }
+    return newValue;
+  } else {
+    
+    // Convolve
+    _sum_float = 0;
+    for (int i = 0; i < _windowSize; i++) {
+      int _index = (_head + i) % _bufferSize;
+      _sum_float += _buffer_float[_index] * (float)_mirroredKernel[i];
+    }
+
+    // Normalize
+    _sum_float /= (float)_norm;
+
+    return _sum_float;
+  }
+}
+
+double SavLayFilter::update(double newValue) {
+  // Circular buffer logic
+  _buffer_double[_head] = newValue;
+  _head = (_head + 1) % _bufferSize;
+
+  if (!_isBufferFull) {
+    // Return new value until buffer is full
+    if (_head == 0) {
+      _isBufferFull = true;
+    }
+    return newValue;
+  } else {
+
+    // Convolve
+    _sum_double = 0;
+    for (int i = 0; i < _windowSize; i++) {
+      int _index = (_head + i) % _bufferSize;
+      _sum_double += _buffer_double[_index] * (double)_mirroredKernel[i];
+    }
+
+    // Normalize
+    _sum_double /= (double)_norm;
+
+    return _sum_double;
   }
 }

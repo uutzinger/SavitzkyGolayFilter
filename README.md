@@ -44,7 +44,7 @@ A ring buffer was implemented and data can be int32, float or double.
 One filter update on 25 values takes about 3-4 microseconds on ESP32.
 
 ## Testing
-Code was not extensively tested, however the calcualtion of the coefficients was compared with the orginal paper and its updates. For efficiency improvements, ChatGPT was consulted.
+Code was not extensively tested, however the calculation of the coefficients was compared with the orginal paper and its updates. For efficiency improvements, ChatGPT was consulted.
 
 Urs Utzinger,
 July 2024

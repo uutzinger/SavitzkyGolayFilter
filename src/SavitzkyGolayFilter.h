@@ -8,15 +8,15 @@
  * This Library is licensed under the MIT License
 **/
 
-#ifndef SavLayFilter_h
-#define SavLayFilter_h
+#ifndef SavitzkyGolayFilter_h
+#define SavitzkyGolayFilter_h
 
 #include <vector>
 #include <cstdint>
 
 #define LIBRARY_VERSION_MAJOR 1
 #define LIBRARY_VERSION_MINOR 3
-#define LIBRARY_VERSION_PATCH 0
+#define LIBRARY_VERSION_PATCH 1
 
 #ifdef SMALL
   #define MAX_WINDOW_SIZE 25
@@ -1002,4 +1002,5 @@ class SavLayFilter {
 
 };//END Class
 
-#endif //SAVLAYFILTER_H
+#endif // SavitzkyGolayFilter
+

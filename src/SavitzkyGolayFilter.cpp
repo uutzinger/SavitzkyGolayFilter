@@ -15,7 +15,7 @@
 #endif
 
 #define SMALL // use the smaller sized tables
-#include "SavLayFilter.h"
+#include "SavitzkyGolayFilter.h"
 #include <iostream>
 #include <vector>
 

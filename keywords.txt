@@ -6,7 +6,7 @@
 # Datatypes (KEYWORD1)
 ##############################
 
-SavLayFilter	KEYWORD1
+SavitzkyGolayFilter	KEYWORD1
 
 ##############################
 # Methods and Functions (KEYWORD2)

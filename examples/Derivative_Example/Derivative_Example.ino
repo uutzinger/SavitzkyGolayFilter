@@ -1,5 +1,5 @@
 /**
-   SavLayFilter Derivative Example
+   SavitzkyGolayFilter Derivative Example
    Creates a generic sin wave
    A filter is then run on it to compute the first derivative or slope of the sin wave
    The derivative is normalized by multipling by the amplitude of the sin wave
@@ -12,7 +12,7 @@
 **/
 
 #include <Arduino.h>
-#include "SavLayFilter.h"
+#include "SavitzkyGolayFilter.h"
 
 #define SMALL             // max window size is 25, otherwise 63
 

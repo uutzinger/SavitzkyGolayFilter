@@ -1,5 +1,5 @@
 /**
-   SavLayFilter Basic Example
+   SavitzkyGolayFilter Basic Example
    Creates a generic sin wave and adds noise from random numbers
    Two filters are then run on it with a large windowsize and a small windowsize
    It is best to open Serial plotter for best results
@@ -14,7 +14,7 @@
 
 
 #include <Arduino.h>
-#include "SavLayFilter.h"
+#include "SavitzkyGolayFilter.h"
 
 #undef SMALL               // max window size is 25 if SMALL is defined, otherwise 63
 

@@ -51,7 +51,7 @@ July 2024
 
 ## Mathematical Explanation
 
-by ChatGPT40, July 2024
+by ChatGPT4o, July 2024
 
 The Savitzky-Golay filter is a digital filter that is used to smooth data and differentiate data points while preserving the shape and features of the signal. It works by fitting successive polynomial functions to a window of data points using the method of least squares. Here's a step-by-step explanation of the basic math behind the Savitzky-Golay filter:
 

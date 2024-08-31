@@ -56,7 +56,7 @@ by ChatGPT4o, July 2024
 The Savitzky-Golay filter is a digital filter that is used to smooth data and differentiate data points while preserving the shape and features of the signal. It works by fitting successive polynomial functions to a window of data points using the method of least squares. Here's a step-by-step explanation of the basic math behind the Savitzky-Golay filter:
 
 ### 1. Polynomial Fitting
-The core idea of the Savitzky-Golay filter is to fit a polynomial of degree $ k $ to a set of $ 2m+1 $ data points (a window of size $ 2m+1 $).
+The core idea of the Savitzky-Golay filter is to fit a polynomial of degree $k$ to a set of $2m+1$ data points (a window of size $2m+1$).
 
 ### 2. Data Points and Window
 Consider a set of data points $ y_i $ where $ i = -m, -m+1, ..., 0, ..., m-1, m $. These points are centered around a point $ y_0 $ that we are interested in smoothing.
@@ -66,7 +66,7 @@ The polynomial of degree $ k $ can be expressed as:
 $ y = a_0 + a_1 x + a_2 x^2 + ... + a_k x^k $
 
 ### 4. Least Squares Method
-To find the coefficients $ a_0, a_1, ..., a_k $ of the polynomial, we minimize the sum of the squares of the differences between the actual data points and the polynomial values. This is done using the least squares method.
+To find the coefficients $a_0, a_1, ..., a_k$ of the polynomial, we minimize the sum of the squares of the differences between the actual data points and the polynomial values. This is done using the least squares method.
 
 $ \min \sum_{i=-m}^{m} \left( y_i - \sum_{j=0}^{k} a_j x_i^j \right)^2 $
 

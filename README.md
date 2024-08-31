@@ -73,12 +73,15 @@ $\min \sum_{i=-m}^{m} \left( y_i - \sum_{j=0}^{k} a_j x_i^j \right)^2$
 ### 5. Matrix Formulation
 The least squares fitting can be formulated in matrix form. Define a matrix $X$ where each row corresponds to a data point and each column corresponds to a power of $x$:
 
-$X = \begin{bmatrix}
+$X = 
+\[
+\begin{bmatrix}
 1 & x_{-m} & x_{-m}^2 & \cdots & x_{-m}^k \\
 1 & x_{-m+1} & x_{-m+1}^2 & \cdots & x_{-m+1}^k \\
 \vdots & \vdots & \vdots & \ddots & \vdots \\
-1 & x_{m} & x_{m}^2 & \cdots & x_{m}^k \\
-\end{bmatrix}$
+1 & x_{m} & x_{m}^2 & \cdots & x_{m}^k
+\end{bmatrix}
+\]$
 
 And a vector $\mathbf{y}$ of the data points:
 
